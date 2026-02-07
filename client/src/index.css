@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pastel Sky Palette */
+  --background: 200 100% 95%; /* Light Sky Blue */
+  --foreground: 222 47% 11%;
+  
+  --primary: 190 90% 45%;     /* Deep Sky Blue */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 45 100% 85%;   /* Soft Yellow (Sun/Bird) */
+  --secondary-foreground: 30 50% 30%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --accent: 330 80% 85%;      /* Soft Pink */
+  --accent-foreground: 330 50% 30%;
+  
+  --destructive: 0 84% 80%;   /* Soft Red */
+  --destructive-foreground: 0 50% 30%;
+  
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 190 90% 45%;
+  
+  --font-display: 'Fredoka', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-accent-foreground;
+    font-family: var(--font-body);
+    background-image: linear-gradient(to bottom, #E0F7FA, #E1F5FE);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-slate-800;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  }
+
+  .game-container {
+    @apply relative overflow-hidden rounded-3xl border-4 border-white shadow-2xl bg-gradient-to-b from-sky-300 to-sky-100;
+    box-shadow: 
+      0 0 0 8px rgba(255, 255, 255, 0.5),
+      0 20px 50px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Custom Cloud Shapes */
+.cloud-shape {
+  background: white;
+  border-radius: 50px;
+  position: relative;
+}
+.cloud-shape::after, .cloud-shape::before {
+  content: '';
+  position: absolute;
+  background: white;
+  z-index: -1;
+}
